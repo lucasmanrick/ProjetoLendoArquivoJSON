@@ -1,7 +1,7 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
 import * as FileSystem from 'expo-file-system';
 import api from './src/services/api/api';
@@ -67,9 +67,9 @@ export default function App() {
         {/* Operador ternário, verifica se o 'useState' dados está definido diferende de null, false ou undefined */}
         
         {dados ? <Button title='enviar Registros' onPress={registraClientesDoJSON}/> : <Text>não há registros para ser enviados </Text>}
-        
+        <ScrollView>
         {dados ? dados.map((el) => ( 
-          <View key={el.cpf}>
+          <View key={el.id}>
 
           <Text>Dados do arquivo JSON:</Text>
           <Text>{JSON.stringify(dados)}</Text>
@@ -90,10 +90,12 @@ export default function App() {
         )) : (
           <Text>Nenhum arquivo selecionado</Text>
         )}
+        </ScrollView>
       </View>
       <StatusBar style="auto" />
     </View>
   );
+  
 }
 
 
