@@ -69,7 +69,7 @@ export default function App() {
         {dados ? <Button title='enviar Registros' onPress={registraClientesDoJSON}/> : <Text>não há registros para ser enviados </Text>}
         <ScrollView>
         {dados ? dados.map((el) => ( 
-          <View key={el.id}>
+          <View key={el.cpf}>
 
           <Text>Dados do arquivo JSON:</Text>
           <Text>{JSON.stringify(dados)}</Text>
