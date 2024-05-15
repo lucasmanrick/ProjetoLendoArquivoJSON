@@ -21,6 +21,7 @@ class Pessoa {
       console.log(error)
     }
   }
+
 }
 
 module.exports = Pessoa
